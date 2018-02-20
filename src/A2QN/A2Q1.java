@@ -35,13 +35,12 @@ public class A2Q1 {
     new Thing(kw, 1, 11);
     
     
-    while(clarence.frontIsClear()){
+    while(clarence.getAvenue() != 12){
         clarence.move();
         if(clarence.canPickThing()){
             if(clarence.countThingsInBackpack()  < 7){
                 clarence.pickThing();
             }
-            clarence.pickThing();
         }
     }
     }
