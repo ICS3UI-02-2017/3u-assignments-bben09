@@ -19,7 +19,11 @@ public class A2Q2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        //create city
     City kw = new City();
+    
+    //spawn robot
     RobotSE clarence = new RobotSE(kw, 1, 1, Direction.EAST);
     }
 }
