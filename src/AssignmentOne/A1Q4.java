@@ -20,12 +20,20 @@ public class A1Q4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+
+        //create city
         City kw = new City();
+
+        //create robots
         RobotSE clarence = new RobotSE(kw, 0, 0, Direction.SOUTH);
         RobotSE jim = new RobotSE(kw, 0, 1, Direction.SOUTH);
+
+        //create walls
         new Wall(kw, 0, 1, Direction.WEST);
         new Wall(kw, 1, 1, Direction.WEST);
         new Wall(kw, 1, 1, Direction.SOUTH);
+
+        //move clarence and jim around walls to meat at (2, 1)
         clarence.move();
         jim.move();
         jim.turnLeft();
@@ -37,7 +45,7 @@ public class A1Q4 {
         jim.turnRight();
         clarence.move();
         jim.move();
-        
-            
+
+
     }
 }

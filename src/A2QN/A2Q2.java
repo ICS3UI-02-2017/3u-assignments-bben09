@@ -4,6 +4,10 @@
  */
 package A2QN;
 
+import becker.robots.City;
+import becker.robots.Direction;
+import becker.robots.RobotSE;
+
 /**
  *
  * @author daupb7975
@@ -15,5 +19,7 @@ public class A2Q2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+    City kw = new City();
+    RobotSE clarence = new RobotSE(kw, 1, 1, Direction.EAST);
     }
 }
