@@ -27,18 +27,20 @@ public class A2Q3 {
         //spawn robot
         RobotSE clarence = new RobotSE(kw, 3, 5, Direction.EAST);
 
-        while (clarence.getAvenue() != 0) {
-            while (!clarence.isFacingNorth()) {
-                clarence.turnLeft();
-            }
-        }
-        clarence.move();
-
+        //move clarence to street 0 making him face north first
         while (clarence.getStreet() != 0) {
-            while (!clarence.isFacingWest()) {
+            if (!clarence.isFacingNorth()) {
                 clarence.turnLeft();
             }
+            clarence.move();
         }
-        clarence.move();
+
+        //bring clarence to avenue 0 making him face west first
+        while (clarence.getAvenue() != 0) {
+            if (!clarence.isFacingWest()) {
+                clarence.turnLeft();
+            }
+            clarence.move();
+        }
     }
 }
