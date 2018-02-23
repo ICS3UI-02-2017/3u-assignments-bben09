@@ -52,7 +52,7 @@ public class A2Q4 {
         new Wall(kw, 3, 3, Direction.SOUTH);
         new Wall(kw, 3, 3, Direction.EAST);
 
-        //Loop to make clarence move around castle
+        //Loop to make clarence move around castle making him check if front is clear or note to move or turn
         while (!clarence.canPickThing()) {
             if (clarence.frontIsClear()) {
                 clarence.move();
