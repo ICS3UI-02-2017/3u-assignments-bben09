@@ -37,6 +37,7 @@ public class A3Q1 {
         new Wall(kw, 1, 1, Direction.WEST);
         new Wall(kw, 2, 1, Direction.WEST);
         
+        //set integer to make him go around twice
         for (int i = 0; i < 2; i++) {
             clarence.move(2);
             clarence.turnLeft();
