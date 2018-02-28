@@ -67,8 +67,13 @@ public class A3Q4 {
         new Wall(kw, 5, 5, Direction.SOUTH);
         new Wall(kw, 5, 5, Direction.EAST);
 
+        //for loop to make clarence repeat code 4 times
         for (int i = 0; i < 4; i++) {
+
+            //move clarence 3 to prepare for for loop
             clarence.move(3);
+
+            //move clarence around the outside of a box bringing him back to the middle
             for (int j = 0; j < 3; j++) {
                 clarence.turnRight();
                 clarence.move(3);
