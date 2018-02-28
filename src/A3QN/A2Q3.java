@@ -28,12 +28,14 @@ public class A2Q3 {
 
         //integer to make karel do command 4 times
         for (int i = 0; i < 4; i++) {
-            //integer to make karel move and drop things
+            //for loop to make karel repeat 4 times
             for (int a = 0; a < 4; a++) {
+
+                //move karel and put things alternating
                 karel.putThing();
                 karel.move();
             }
-            //bring karel back to 
+            //bring karel back to avenue 1 and move down one street
             karel.putThing();
             karel.turnAround();
             karel.move(4);

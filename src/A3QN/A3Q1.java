@@ -37,8 +37,10 @@ public class A3Q1 {
         new Wall(kw, 1, 1, Direction.WEST);
         new Wall(kw, 2, 1, Direction.WEST);
 
-        //set integer to make him go around twice
+        //for loop to make him repeat code twice
         for (int i = 0; i < 2; i++) {
+            
+            //make clarence go around box
             clarence.move(2);
             clarence.turnLeft();
             clarence.move(3);

@@ -35,7 +35,8 @@ public class A3Q2 {
         }
         //for loop to make clarence repeat 10 times
         for (int a = 0; a < 10; a++) {
-            //code to make clarence pick thing move drop and go back
+            
+            //make clarence pick thing move drop and go back
             clarence.pickThing();
             clarence.move();
             clarence.putThing();
