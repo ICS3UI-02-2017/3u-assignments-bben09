@@ -20,8 +20,8 @@ public class A3Q1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-          //create city
+
+        //create city
         City kw = new City();
 
         //create robot
@@ -36,7 +36,7 @@ public class A3Q1 {
         new Wall(kw, 1, 1, Direction.NORTH);
         new Wall(kw, 1, 1, Direction.WEST);
         new Wall(kw, 2, 1, Direction.WEST);
-        
+
         //set integer to make him go around twice
         for (int i = 0; i < 2; i++) {
             clarence.move(2);

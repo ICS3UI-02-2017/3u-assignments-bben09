@@ -36,43 +36,43 @@ public class A3Q4 {
         new Wall(kw, 1, 2, Direction.EAST);
         new Wall(kw, 2, 2, Direction.SOUTH);
         new Wall(kw, 2, 2, Direction.EAST);
-        
+
         //create top right box
         new Wall(kw, 1, 4, Direction.WEST);
         new Wall(kw, 1, 4, Direction.NORTH);
         new Wall(kw, 1, 5, Direction.EAST);
         new Wall(kw, 1, 5, Direction.NORTH);
         new Wall(kw, 2, 5, Direction.EAST);
-        new Wall(kw, 2, 5,Direction.SOUTH);
+        new Wall(kw, 2, 5, Direction.SOUTH);
         new Wall(kw, 2, 4, Direction.WEST);
         new Wall(kw, 2, 4, Direction.SOUTH);
-        
+
         //create bottom left box
         new Wall(kw, 4, 1, Direction.NORTH);
         new Wall(kw, 4, 1, Direction.WEST);
         new Wall(kw, 5, 1, Direction.SOUTH);
         new Wall(kw, 5, 1, Direction.WEST);
         new Wall(kw, 4, 2, Direction.NORTH);
-        new Wall(kw, 4, 2,Direction.EAST);
+        new Wall(kw, 4, 2, Direction.EAST);
         new Wall(kw, 5, 2, Direction.SOUTH);
         new Wall(kw, 5, 2, Direction.EAST);
-        
+
         //create bottom right box
         new Wall(kw, 4, 4, Direction.WEST);
         new Wall(kw, 4, 4, Direction.NORTH);
         new Wall(kw, 4, 5, Direction.NORTH);
         new Wall(kw, 4, 5, Direction.EAST);
         new Wall(kw, 5, 4, Direction.SOUTH);
-        new Wall(kw, 5, 4,Direction.WEST);
+        new Wall(kw, 5, 4, Direction.WEST);
         new Wall(kw, 5, 5, Direction.SOUTH);
         new Wall(kw, 5, 5, Direction.EAST);
 
         for (int i = 0; i < 4; i++) {
             clarence.move(3);
             for (int j = 0; j < 3; j++) {
-            clarence.turnRight();
-            clarence.move(3);
-            
+                clarence.turnRight();
+                clarence.move(3);
+
             }
         }
     }

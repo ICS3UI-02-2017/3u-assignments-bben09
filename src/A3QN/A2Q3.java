@@ -19,30 +19,28 @@ public class A2Q3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+
         //create city
         City kw = new City();
 
         //create robot
         RobotSE karel = new RobotSE(kw, 1, 1, Direction.EAST, 20);
-        
+
         //integer to make karel do command 4 times
         for (int i = 0; i < 4; i++) {
-            karel.putThing();
-            karel.move();
-            karel.putThing();
-            karel.move();
-            karel.putThing();
-            karel.move();
-            karel.putThing();
-            karel.move();
+            //integer to make karel move and drop things
+            for (int a = 0; a < 4; a++) {
+                karel.putThing();
+                karel.move();
+            }
+            //bring karel back to 
             karel.putThing();
             karel.turnAround();
             karel.move(4);
             karel.turnLeft();
             karel.move();
-            karel.turnLeft();                
+            karel.turnLeft();
         }
-        
+
     }
 }

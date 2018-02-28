@@ -26,23 +26,25 @@ public class A3Q2 {
 
         //create robot
         RobotSE clarence = new RobotSE(kw, 0, 0, Direction.EAST);
-        
+
         kw.showThingCounts(true);
 
         //spawn 10 things where clarence is
         for (int i = 0; i < 10; i++) {
             new Thing(kw, 0, 0);
         }
-            //for loop to make clarence move 10 things
-            for (int a = 0; a < 10; a++) {
-                //code to make clarence pick thing move drop and go back
-                clarence.pickThing();
-                clarence.move();
-                clarence.putThing();
-                clarence.turnAround();
-                clarence.move();
-                clarence.turnAround();
-            }
-        
+        //for loop to make clarence repeat 10 times
+        for (int a = 0; a < 10; a++) {
+            //code to make clarence pick thing move drop and go back
+            clarence.pickThing();
+            clarence.move();
+            clarence.putThing();
+            clarence.turnAround();
+            clarence.move();
+            clarence.turnAround();
+        }
+        //move clarence to the pile of things
+        clarence.move();
+
     }
 }
