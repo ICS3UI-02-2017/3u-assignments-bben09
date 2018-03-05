@@ -4,6 +4,8 @@
  */
 package A4Qn;
 
+import java.util.Scanner;
+
 /**
  *
  * @author daupb7975
@@ -19,5 +21,6 @@ public class A4Q1 {
         //
         System.out.println("Enter your name:");
         
+        Scanner input = new Scanner(System.in);
     }
 }
