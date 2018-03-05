@@ -18,9 +18,16 @@ public class A4Q1 {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        //
+        //Text asking user to input name
         System.out.println("Enter your name:");
         
+        //create a scanner
         Scanner input = new Scanner(System.in);
+        
+        //make string for name input
+        String userName = input.nextLine();
+        
+        //output text to greet user
+        System.out.println("Hello " + userName);
     }
 }
