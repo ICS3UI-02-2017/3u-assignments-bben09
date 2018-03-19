@@ -67,6 +67,6 @@ public class A4Q5 {
         System.out.println("On the third test you got " + (mark3*100) + "%");
         System.out.println("On the fourth test you got " + (mark4*100) + "%");
         System.out.println("On the fifth test you got " + (mark5*100) + "%");
-        System.out.println("Your average was" + (average*100) + "%");
+        System.out.println("Your average was" + ( average*100) + "%");
     }
 }
