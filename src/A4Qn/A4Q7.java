@@ -33,17 +33,18 @@ public class A4Q7 {
             //int thats the dice roll
             int roll = input.nextInt();
             
-            //update position after roll
-            posi = (posi + roll);
-
             //if loops to make sure the roll is between 2 and 12
             if (roll < 2) {
+                roll = 0;
                 System.out.println("Not valid roll.");
             }
             if (roll > 12) {
                 roll = 0;
                 System.out.println("Not valid roll.");
             }
+            
+            //update position after roll
+            posi = (posi + roll);
             
             //if loop to keep the position the same if the roll put it over 100
             if (posi > 100) {
