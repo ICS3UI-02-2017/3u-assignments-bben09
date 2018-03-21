@@ -21,13 +21,22 @@ public class A4Q7 {
         //scanner
         Scanner input = new Scanner(System.in);
 
+        //integer to set the starting point on the playboard
         int posi = 1;
 
+        //While loop that repeats until the position is exactly 100
         while (posi != 100) {
 
+            //output text to tell user to input their dice roll
             System.out.println("Enter your dice number:");
+            
+            //int thats the dice roll
             int roll = input.nextInt();
+            
+            //update position after roll
+            posi = (posi + roll);
 
+            //if loops to make sure the roll is between 2 and 12
             if (roll < 2) {
                 System.out.println("Not valid roll.");
             }
@@ -35,11 +44,13 @@ public class A4Q7 {
                 roll = 0;
                 System.out.println("Not valid roll.");
             }
+            
+            //if loop to keep the position the same if the roll put it over 100
             if (posi > 100) {
                 roll = 0;
             }
-            posi = (posi + roll);
 
+            //all the snakes and ladders
             if (posi == 54) {
                 posi = 19;
             }
@@ -58,9 +69,13 @@ public class A4Q7 {
             if (posi == 67) {
                 posi = 86;
             }
+            
+            //output to tell the user their position
             System.out.println("Your position is " + posi);
 
         }
+        
+        //if loop to tell user they won if they get to 100
         if (posi == 100) {
             System.out.println("Congradulation, you won!");
         }
