@@ -45,6 +45,8 @@ public class A4Q9 extends javax.swing.JFrame {
 
         jLabel3.setText("Result");
 
+        Output.setEditable(false);
+
         jButton1.setText("Add");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

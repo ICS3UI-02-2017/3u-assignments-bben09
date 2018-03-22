@@ -107,6 +107,9 @@
     <Component class="javax.swing.JTextField" name="Input2">
     </Component>
     <Component class="javax.swing.JTextField" name="Output">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
