@@ -53,10 +53,25 @@ public class A4Q9 extends javax.swing.JFrame {
         });
 
         jButton2.setText("Subtract");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Multiply");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Divide");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,6 +138,36 @@ public class A4Q9 extends javax.swing.JFrame {
         double add = (num1 + num2);
         Output.setText("" + add);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        String numText3 = Input1.getText();
+        String numText4 = Input2.getText();
+        double num3 = Double.parseDouble(numText3);
+        double num4 = Double.parseDouble(numText4);
+        double sub = (num3 - num4);
+        Output.setText("" + sub);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        String numText5 = Input1.getText();
+        String numText6 = Input2.getText();
+        double num5 = Double.parseDouble(numText5);
+        double num6 = Double.parseDouble(numText6);
+        double mult = (num5*num6);
+        Output.setText("" + mult);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        String numText7 = Input1.getText();
+        String numText8 = Input2.getText();
+        double num7 = Double.parseDouble(numText7);
+        double num8 = Double.parseDouble(numText8);
+        double div = (num7/num8);
+        Output.setText("" + div);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
