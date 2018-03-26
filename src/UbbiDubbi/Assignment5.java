@@ -31,6 +31,8 @@ public class Assignment5 {
             int length = Word.length();
 
             String newWord = "";
+            
+            
             //use a for loop to go through the characters
             for (int i = 0; i < length; i++) {
 
@@ -39,25 +41,25 @@ public class Assignment5 {
                         || Word.charAt(i) == 'e'
                         || Word.charAt(i) == 'i'
                         || Word.charAt(i) == 'o'
-                        || Word.charAt(i) == 'u') {
+                        || Word.charAt(i) == 'u'
+) {
                     newWord = newWord + "ub" + Word.charAt(i);
                 } else {
                     newWord = newWord + Word.charAt(i);
                 }
+                if(newWord.contains("ubaub") 
+                        || newWord.contains("ubeub") 
+                        || newWord.contains("ubiub") 
+                        || newWord.contains("uboub") 
+                        || newWord.contains("ubuub"));{
+                newWord.replace("ubaub", "uba");
+                newWord.replace("ubeub", "ube");
+                newWord.replace("ubiub", "ubi");
+                newWord.replace("uboub", "ubo");
+                newWord.replace("ubuub", "ubu");
+               
+            }
 
-                if (Word.charAt(i) == 'a'
-                        || Word.charAt(i) == 'e'
-                        || Word.charAt(i) == 'i'
-                        || Word.charAt(i) == 'o'
-                        || Word.charAt(i) == 'u'
-                        || Word.charAt(i + 1) == 'a'
-                        || Word.charAt(i + 1) == 'e'
-                        || Word.charAt(i + 1) == 'i'
-                        || Word.charAt(i + 1) == 'o'
-                        || Word.charAt(i + 1) == 'u'){
-                    newWord = newWord + Word.charAt(i);
-                    
-                }
             }
             System.out.println(Word + " is " + newWord + " in Ubbi Dubbi");
         }
