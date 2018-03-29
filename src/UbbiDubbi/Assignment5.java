@@ -29,25 +29,50 @@ public class Assignment5 {
 
 
             int length = Word.length();
-           
+
             String newWord = "";
 
             int position = -1;
             //use a for loop to go through the characters
             for (int i = 0; i < length; i++) {
 
-                //look at the character, at position i, is it a vowel?
+                if (Word.charAt(i) != 'a'
+                        && Word.charAt(i) != 'e'
+                        && Word.charAt(i) != 'i'
+                        && Word.charAt(i) != 'o'
+                        && Word.charAt(i) != 'u') {
+                    newWord = newWord + Word.charAt(i);
+                }
+
                 if (Word.charAt(i) == 'a'
                         || Word.charAt(i) == 'e'
                         || Word.charAt(i) == 'i'
                         || Word.charAt(i) == 'o'
                         || Word.charAt(i) == 'u') {
-                    newWord = newWord + "ub" + Word.charAt(i);
+
                     position = i;
-                } else {
-                    newWord = newWord + Word.charAt(i);
                 }
+
                 
+                //look at the character, at position i, is it a vowel?
+                if ((position != length - 1) && (position != 0) && (Word.charAt(i) == 'a'
+                        || Word.charAt(i) == 'e'
+                        || Word.charAt(i) == 'i'
+                        || Word.charAt(i) == 'o'
+                        || Word.charAt(i) == 'u')
+                        && Word.charAt(position + 1) != 'a'
+                        && Word.charAt(position + 1) != 'e'
+                        && Word.charAt(position + 1) != 'i'
+                        && Word.charAt(position + 1) != 'o'
+                        && Word.charAt(position + 1) != 'u'
+                        && Word.charAt(position - 1) != 'a'
+                        && Word.charAt(position - 1) != 'e'
+                        && Word.charAt(position - 1) != 'i'
+                        && Word.charAt(position - 1) != 'o'
+                        && Word.charAt(position - 1) != 'u') {
+                    newWord = newWord + "ub" + Word.charAt(i);
+                }
+
                 if ((position != length - 1) && (Word.charAt(i) == 'a'
                         || Word.charAt(i) == 'e'
                         || Word.charAt(i) == 'i'
@@ -60,7 +85,9 @@ public class Assignment5 {
                         || Word.charAt(position + 1) == 'u')) {
                     newWord = newWord + "ub" + Word.charAt(i) + Word.charAt(position + 1);
                 }
-               
+                
+
+
 
 
             }
