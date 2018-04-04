@@ -34,11 +34,11 @@ public class ajks {
             //sanitize word
             Word = Word.toLowerCase();
 
-            //create an integer that is the length of the word
-            int length = Word.length();
-
             //create the new word as a blank string 
             String newWord = "";
+            
+            //create integer thats the length of the word
+            int length = Word.length();
 
             //use a for loop to go through the characters
             for (int i = 0; i < length; i++) {
@@ -93,3 +93,4 @@ public class ajks {
             //output the users original word and tell them the translated word in Ubbi Dubbi
             System.out.println(Word + " is " + newWord + " in Ubbi Dubbi.");
         }
+    }
