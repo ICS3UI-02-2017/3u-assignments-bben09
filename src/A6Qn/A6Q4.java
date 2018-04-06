@@ -17,14 +17,20 @@ public class A6Q4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        //scanner to read the marks
         Scanner input = new Scanner(System.in);
 
+        //tell user to input 10 marks
         System.out.println("Enter the 10 marks:");
 
+        //make a double array with a size of 10
         double[] marks = new double[10];
 
+        //make a blank double to store the value later
         double blank = 0;
-                
+            
+        //for loop to read the 
         for (int i = 0; i < marks.length; i++) {
             marks[i] = input.nextDouble();
         }
