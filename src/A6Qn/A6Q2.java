@@ -31,9 +31,12 @@ public class A6Q2 {
         for (int i = 0; i < heights.length; i++) {
             heights[i] = input.nextDouble();
             double height = heights[i];
-            if(height > 178){
-                System.out.println(height + " is above average");
             }
+        for (int i = 0; i < heights.length; i++) {
+           if(heights[i] >= 177){
+               double height = heights[i];
+               System.out.println(height + "cm is above average.");
+        }
         }
     }
 }
