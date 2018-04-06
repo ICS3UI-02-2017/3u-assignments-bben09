@@ -21,17 +21,19 @@ public class A6Q3 {
         
         System.out.println("Enter two integers");
         
+        int blank = 0;
+        
         int[] nums = new int[2];
         
         nums[0] = input.nextInt();
         nums[1] = input.nextInt();
         
-        if(nums[1] > nums[0]){
-            System.out.println("The integers in ascending order are " + nums[0] + ", " + nums[1] + ".");
-        }
-        
         if(nums[0] > nums[1]){
-            System.out.println("The integers in ascending order are " + nums[1] + ", " + nums[0] + ".");
+           blank = nums[0];
+           nums[0] = nums[1];
+           nums[1] = blank;
+        }
+            System.out.println("The integers in ascending order are " + nums[0] + ", " + nums[1] + ".");
         }
     
 }
