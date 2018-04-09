@@ -51,8 +51,9 @@ public class A6Q5 {
             
         }else{
             double middle1 = numMarks / 2;
-            double middle2 = Math.ciel
-            System.out.println("");
+            double middle2 = Math.ceil(middle1);
+            int middle3 = middle2;
+            System.out.println("The median is " + marks[middle3]);
         }
     }
 }
