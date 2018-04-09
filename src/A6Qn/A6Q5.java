@@ -41,5 +41,12 @@ public class A6Q5 {
                 }
             }
         }
+        System.out.println("The marks in order are:");
+        for (int i = 0; i < marks.length; i++) {
+            System.out.println(marks[i] + ",");
+        }
+            int half = marks.length / 2;
+            System.out.println("The median mark is " + marks[half]);
+        
     }
 }
