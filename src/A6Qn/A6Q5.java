@@ -47,8 +47,9 @@ public class A6Q5 {
         }
 
         if ((numMarks % 2) == 0) {
-            int posi = numMarks / 2;
-            
+            int posi = numMarks/2;
+            double media = ((marks[posi] + marks[posi-1])/2);
+            System.out.println("The media is " + media);
         }else{
             double middle1 = numMarks / 2;
             double middle2 = Math.ceil(middle1);
