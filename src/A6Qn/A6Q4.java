@@ -45,7 +45,7 @@ public class A6Q4 {
                 }
             }
         }
-        //output the marks in order from lowest the highest
+        //output the marks in order from lowest the highestb (i did it without a for loop because its always 10 and it looks better)
         System.out.println(marks[0] + ", " + marks[1] + ", " + marks[2] + ", " + marks[3] + ", " + marks[4] + ", " + marks[5] + ", " + marks[6] + ", " + marks[7] + ", " + marks[8] + ", " + marks[9]);
     }
 }
