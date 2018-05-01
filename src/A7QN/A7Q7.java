@@ -10,20 +10,14 @@ import java.util.Scanner;
  *
  * @author daupb7975
  */
-public class A7Q5 {
-
-    public static void chaotic(int line){
-           for (int i = 0; i < line; i++) {
-               System.out.println("");
-               double random = (int)(Math.random()*5) + 1;
-               for (int j = 0; j < random; j++) {
-                   System.out.print("*");
-               }
-        }
- 
-
-    
+public class A7Q7 {
+public static int firstDig(int number){
+    while(number < -10 || number > 10){
+        number = number/10;
     }
+    System.out.println("" + number);
+    return 0;
+}
     /**
      * @param args the command line arguments
      */
@@ -31,8 +25,10 @@ public class A7Q5 {
         // TODO code application logic here
         Scanner input = new Scanner(System.in);
         
+        System.out.println("Input the number here:");
         
-        chaotic(10);
+        int number = input.nextInt();
         
+        firstDig(number);
     }
 }
