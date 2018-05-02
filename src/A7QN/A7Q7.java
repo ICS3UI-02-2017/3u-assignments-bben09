@@ -27,6 +27,7 @@ public static int firstDig(int number){
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
         //scanner to read users input
         Scanner input = new Scanner(System.in);
         
