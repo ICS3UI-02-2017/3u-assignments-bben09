@@ -33,7 +33,7 @@ public class A7Q8 {
         if (num < 10 && num % 2 > 0) {
             return true;
         }
-        return false;
+        return true;
 
     }
 
@@ -43,7 +43,7 @@ public class A7Q8 {
     public static void main(String[] args) {
         // TODO code application logic here
 
-        int a = 13579;
-        allDigitsOdd(a);
+        int a = 13589;
+        System.out.println(allDigitsOdd(a));
     }
 }
