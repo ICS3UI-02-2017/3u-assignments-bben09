@@ -18,6 +18,11 @@ public static int firstDig(int number){
         number = number/10;
     }
     
+    //make sure the digit is positive by multiplying by negative one if it is negative
+    if(number < 0){
+        number = number * -1;
+    }
+    
     //output the number
     System.out.println("" + number);
     return 0;

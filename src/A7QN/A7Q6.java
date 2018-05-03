@@ -18,6 +18,10 @@ public class A7Q6 {
         //make number equal the the remainder when dividing by 10, which is the last digit
         number = number % 10;
         
+        //if the number is negative multiply it by negative one so that the digit is positive
+        if(number<0){
+            number = number * -1;
+        }
         //output the lasst digit
         System.out.println("The last digit is " + number);
         return number;
@@ -28,7 +32,8 @@ public class A7Q6 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-                //scanner to read users input
+               
+        //scanner to read users input
         Scanner input = new Scanner(System.in);
         
         //ask the user for the number 
