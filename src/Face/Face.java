@@ -39,7 +39,7 @@ public class Face extends JComponent implements ActionListener {
 
     // YOUR GAME VARIABLES WOULD GO HERE
     Color skin = new Color(247, 204, 123);
-
+    Color nose = new Color(247, 193, 69);
 
     // GAME VARIABLES END HERE    
 
@@ -83,27 +83,70 @@ public class Face extends JComponent implements ActionListener {
         g.clearRect(0, 0, WIDTH, HEIGHT);
 
         // GAME DRAWING GOES HERE
-        g.setColor(Color.BLACK);
+        g.setColor(Color.white);
         g.fillRect(0,0,800,600);
         
+        //ears
         g.setColor(skin);
         g.fillOval(225, 225, 50, 50);
         g.fillOval(525, 225, 50, 50);
-        g.fillOval(250, 100, 300, 400);
-
         
+        //ear outlines
+        g.setColor(Color.BLACK);
+        g.drawOval(225, 225, 50, 50);
+        g.drawOval(525, 225, 50, 50);
+        
+        g.setColor(skin);
+        g.fillOval(250, 100, 300, 400);
+        
+        //nose
+        g.setColor(nose);
+        g.fillArc(385, 250, 30, 75, 0, 180);
+        
+        //eyes
         g.setColor(Color.white);
         g.fillOval(325, 200, 50, 40);
         g.fillOval(425, 200, 50, 40);
-		
-        g.setColor(Color.blue);
-        g.fillOval(337, 210, 25, 20);
-        g.fillOval(437, 210, 25, 20);
         
+        //eye colour
+        g.setColor(Color.blue);
+        g.fillOval(337, 215, 25, 20);
+        g.fillOval(437, 215, 25, 20);
+        
+        //pupils
         g.setColor(Color.BLACK);
-        g.fillOval(343, 215, 12, 10);
-        g.fillOval(443, 215, 12, 10);
+        g.fillOval(343, 220, 12, 10);
+        g.fillOval(443, 220, 12, 10);
 		
+        //mouth
+        g.setColor(Color.BLACK);
+        g.fillArc(350, 275, 100, 100, 180, 180);
+        
+        //tungue
+        g.setColor(Color.red);
+        g.fillArc(373, 357, 54, 18, 180, 180);
+        g.fillArc(373, 361, 54, 9, 0, 180);
+        
+        //teeth
+        g.setColor(Color.white);
+        g.fillRect(389, 326, 10, 15);
+        g.fillRect(401, 326, 10, 15);
+        g.fillRect(377, 326, 10, 15);
+        g.fillRect(413, 326, 10, 15);
+        g.fillRect(425, 326, 10, 15);
+        g.fillRect(365, 326, 10, 15);
+        
+        //outlines
+        g.setColor(Color.BLACK);
+        //eyes
+        g.drawOval(325, 200, 50, 40);
+        g.drawOval(425, 200, 50, 40);
+        //nose
+        g.drawArc(385, 250, 30, 75, 0, 180);
+        //head
+        g.drawOval(250, 100, 300, 400);
+        //mouth
+        g.drawArc(350, 275, 100, 100, 180, 180);
         // GAME DRAWING ENDS HERE
     }
 
