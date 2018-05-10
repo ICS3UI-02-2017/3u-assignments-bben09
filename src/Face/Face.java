@@ -139,6 +139,11 @@ public class Face extends JComponent implements ActionListener {
         g.drawLine(325, 185, 375, 195);
         g.drawLine(425, 195, 475, 185);
         
+        //hair
+        g.drawLine(400, 75, 400, 100);
+        g.drawArc(350, 75, 50, 50, 0, 45);
+        g.drawArc(400, 75, 50, 50, 135, 45);
+        
         //head outline
         g.setColor(Color.BLACK);
         g.drawOval(250, 100, 300, 400);
