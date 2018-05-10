@@ -12,6 +12,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
+import static java.awt.image.ImageObserver.ERROR;
 import javax.swing.Timer;
 
 /**
@@ -96,6 +97,7 @@ public class Face extends JComponent implements ActionListener {
         g.drawOval(225, 225, 50, 50);
         g.drawOval(525, 225, 50, 50);
         
+        //head
         g.setColor(skin);
         g.fillOval(250, 100, 300, 400);
         
@@ -118,6 +120,11 @@ public class Face extends JComponent implements ActionListener {
         g.fillOval(343, 220, 12, 10);
         g.fillOval(443, 220, 12, 10);
 		
+        //eye lids
+        g.setColor(skin);
+        g.fillArc(325, 200, 50, 40, 0, 180);
+        g.fillArc(425, 200, 50, 40, 0, 180);
+        
         //mouth
         g.setColor(Color.BLACK);
         g.fillArc(350, 275, 100, 100, 180, 180);
@@ -126,6 +133,20 @@ public class Face extends JComponent implements ActionListener {
         g.setColor(Color.red);
         g.fillArc(373, 357, 54, 18, 180, 180);
         g.fillArc(373, 361, 54, 9, 0, 180);
+        
+        //eyebrows
+        g.setColor(Color.BLACK);
+        g.drawLine(325, 185, 375, 195);
+        g.drawLine(425, 195, 475, 185);
+        
+        //head outline
+        g.setColor(Color.BLACK);
+        g.drawOval(250, 100, 300, 400);
+        
+        //chin
+        g.setColor(skin);
+        g.fillArc(360, 460, 50, 50, 155, 180);
+        g.fillArc(390, 460, 50, 50, 205, 180);
         
         //teeth
         g.setColor(Color.white);
@@ -143,10 +164,22 @@ public class Face extends JComponent implements ActionListener {
         g.drawOval(425, 200, 50, 40);
         //nose
         g.drawArc(385, 250, 30, 75, 0, 180);
-        //head
-        g.drawOval(250, 100, 300, 400);
+        //chin
+        g.drawArc(360, 460, 50, 50, 155, 180);
+        g.drawArc(390, 460, 50, 50, 205, 180);
         //mouth
         g.drawArc(350, 275, 100, 100, 180, 180);
+        //eye lids
+        g.drawLine(325, 219, 375, 219);
+        g.drawLine(425, 219, 475, 219);
+        
+        //cover up chin outline
+        g.setColor(skin);
+        g.fillOval(385, 476, 30, 30);
+        
+        //chin line
+        g.setColor(Color.black);
+        g.drawLine(400, 490, 400, 506);
         // GAME DRAWING ENDS HERE
     }
 
