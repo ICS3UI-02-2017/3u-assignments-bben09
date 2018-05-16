@@ -1,4 +1,3 @@
-package Examples;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -18,7 +17,7 @@ import javax.swing.Timer;
  *
  * @author daupb7975
  */
-public class TwoDGraphicsExample extends JComponent implements ActionListener {
+public class Game extends JComponent implements ActionListener {
 
     // Height and Width of our game
     static final int WIDTH = 800;
@@ -34,20 +33,17 @@ public class TwoDGraphicsExample extends JComponent implements ActionListener {
     // this is what keeps our time running smoothly :)
     Timer gameTimer;
     // YOUR GAME VARIABLES WOULD GO HERE
-    Color purple = new Color(127, 27, 170);
-    int mouseX = 0;
-    int mouseY = 0;
-    
-    boolean left = false;
+    boolean up = false;
+    boolean down = false;
     boolean right = false;
-    
-    int playerX = 100;
-    int playerY = 75;
+    boolean left = false;
+    int playerX = 375;
+    int playerY = 550;
 
     // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
     // You will learn more about this in Grade 12 :)
-    public TwoDGraphicsExample() {
+    public Game() {
         // creates a windows to show my game
         JFrame frame = new JFrame(title);
 
@@ -84,45 +80,11 @@ public class TwoDGraphicsExample extends JComponent implements ActionListener {
         g.clearRect(0, 0, WIDTH, HEIGHT);
 
         // GAME DRAWING GOES HERE
-
-        g.setColor(purple);
+        g.setColor(Color.black);
         g.fillRect(0, 0, 800, 600);
 
-        //set the colour
-        g.setColor(Color.magenta);
-
-        //draw a filled in ractangle
-        //(x, y, width, height)
-        g.fillRect(100, 75, 150, 50);
-
-        g.setColor(Color.cyan);
-
-        //draw anything that is circular
-        //(x, y, width, height) 
-        g.fillOval(playerX, playerY, 150, 50);
-
-
         g.setColor(Color.yellow);
-        g.fillOval(150, 75, 50, 50);
-
-        g.drawOval(mouseX, mouseY, 150, 50);
-
-        //rounds the corners
-        //(x, y, width, height, radius width, radius height
-        g.fillRoundRect(ERROR, ERROR, ERROR, ERROR, ERROR, ERROR);
-
-        //draw a polygon
-        int[] triangleX = {500, 600, 450};
-        int[] triangleY = {400, 500, 500};
-
-        //(array of x point, array of y points, number of points)
-        g.fillPolygon(triangleX, triangleY, 3);
-
-        //(x, y, width, height, start angle, end angle
-        g.fillArc(100, 400, 100, 100, 45, 270);
-
-        //(x,y,x,y)
-        g.drawLine(250, 125, 500, 400);
+        g.fillOval(playerX, playerY, 50, 50);
 
         // GAME DRAWING ENDS HERE
     }
@@ -136,13 +98,18 @@ public class TwoDGraphicsExample extends JComponent implements ActionListener {
     // The main game loop
     // In here is where all the logic for my game will go
     public void gameLoop() {
-        if(right){
-            playerX = playerX + 3;
-            right = false;
-        }else if(left){
-            playerX = playerX - 3;
+        if (up) {
+            playerY = playerY + 50;
         }
-        
+        if (down) {
+            playerY = playerY - 50;
+        }
+        if (right) {
+            playerX = playerX + 50;
+        }
+        if (left) {
+            playerX = playerX - 50;
+        }
     }
 
     // Used to implement any of the Mouse Actions
@@ -151,10 +118,6 @@ public class TwoDGraphicsExample extends JComponent implements ActionListener {
         // if a mouse button has been pressed down
         @Override
         public void mousePressed(MouseEvent e) {
-            if (e.getButton() == MouseEvent.BUTTON1) {
-                mouseX = e.getX();
-                mouseY = e.getY();
-            }
         }
 
         // if a mouse button has been released
@@ -179,38 +142,37 @@ public class TwoDGraphicsExample extends JComponent implements ActionListener {
         // if a key has been pressed down
         @Override
         public void keyPressed(KeyEvent e) {
-            int keyCode = e.getKeyCode();
-            if(keyCode == KeyEvent.VK_D){
-                right = true;
-            }else if(keyCode == KeyEvent.VK_A){
-                left = true;
-            }
         }
 
         // if a key has been released
         @Override
         public void keyReleased(KeyEvent e) {
-//            int keyCode = e.getKeyCode();
-//            if(keyCode == KeyEvent.VK_D){
-//                right = false;
-//            }else if(keyCode == KeyEvent.VK_A){
-//                left = false;
-//            }
+            int keycode = e.getKeyCode();
+            if (keycode == KeyEvent.VK_W) {
+                up = true;
+            }else if (keycode == KeyEvent.VK_S) {
+                down = true;
+            }
+            if (keycode == KeyEvent.VK_A) {
+                left = true;
+            }else if (keycode == KeyEvent.VK_D) {
+                right = true;
+            }
         }
     }
 
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        preSetup();
-        gameLoop();
-        repaint();
-    }
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            preSetup();
+            gameLoop();
+            repaint();
+        }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // creates an instance of my game
-        TwoDGraphicsExample game = new TwoDGraphicsExample();
+        /**
+         * @param args the command line arguments
+         */
+        public static void main(String[] args) {
+            // creates an instance of my game
+            Game game = new Game();
+        }
     }
-}
