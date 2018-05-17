@@ -39,6 +39,9 @@ public class Game extends JComponent implements ActionListener {
     boolean left = false;
     int playerX = 375;
     int playerY = 550;
+    int Y1 = 20;
+    int Y2 = 225;
+    int Y3 = 425;
 
     // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
@@ -86,6 +89,16 @@ public class Game extends JComponent implements ActionListener {
         g.setColor(Color.yellow);
         g.fillOval(playerX, playerY, 50, 50);
 
+        g.setColor(Color.white);
+        g.fillRect(0, Y1, 300, 50);
+        g.fillRect(375, Y1, 425, 50);
+
+        g.fillRect(0, Y2, 600, 50);
+        g.fillRect(675, Y2, 125, 50);
+
+        g.fillRect(0, Y3, 150, 50);
+        g.fillRect(225, Y3, 575, 50);
+
         // GAME DRAWING ENDS HERE
     }
 
@@ -98,18 +111,32 @@ public class Game extends JComponent implements ActionListener {
     // The main game loop
     // In here is where all the logic for my game will go
     public void gameLoop() {
-        if (up) {
-            playerY = playerY + 50;
+        if (up && playerY > -1) {
+            playerY = playerY - 8;
         }
-        if (down) {
-            playerY = playerY - 50;
+        if (down && playerY < 551) {
+            playerY = playerY + 8;
         }
-        if (right) {
-            playerX = playerX + 50;
+        if (right && playerX < 751) {
+            playerX = playerX + 8;
         }
-        if (left) {
-            playerX = playerX - 50;
+        if (left && playerX > -1) {
+            playerX = playerX - 8;
         }
+        Y1 = Y1 + 2;
+        if (Y1 >= 600) {
+            Y1 = -50;
+        }
+        Y2 = Y2 + 2;
+        if (Y2 >= 600) {
+            Y2 = -50;
+        }
+        Y3 = Y3 + 2;
+        if (Y3 >= 600) {
+            Y3 = -50;
+        }
+
+
     }
 
     // Used to implement any of the Mouse Actions
@@ -142,6 +169,17 @@ public class Game extends JComponent implements ActionListener {
         // if a key has been pressed down
         @Override
         public void keyPressed(KeyEvent e) {
+            int keycode = e.getKeyCode();
+            if (keycode == KeyEvent.VK_W) {
+                up = true;
+            } else if (keycode == KeyEvent.VK_S) {
+                down = true;
+            }
+            if (keycode == KeyEvent.VK_A) {
+                left = true;
+            } else if (keycode == KeyEvent.VK_D) {
+                right = true;
+            }
         }
 
         // if a key has been released
@@ -149,30 +187,30 @@ public class Game extends JComponent implements ActionListener {
         public void keyReleased(KeyEvent e) {
             int keycode = e.getKeyCode();
             if (keycode == KeyEvent.VK_W) {
-                up = true;
-            }else if (keycode == KeyEvent.VK_S) {
-                down = true;
+                up = false;
+            } else if (keycode == KeyEvent.VK_S) {
+                down = false;
             }
             if (keycode == KeyEvent.VK_A) {
-                left = true;
-            }else if (keycode == KeyEvent.VK_D) {
-                right = true;
+                left = false;
+            } else if (keycode == KeyEvent.VK_D) {
+                right = false;
             }
         }
     }
 
-        @Override
-        public void actionPerformed(ActionEvent ae) {
-            preSetup();
-            gameLoop();
-            repaint();
-        }
-
-        /**
-         * @param args the command line arguments
-         */
-        public static void main(String[] args) {
-            // creates an instance of my game
-            Game game = new Game();
-        }
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        preSetup();
+        gameLoop();
+        repaint();
     }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // creates an instance of my game
+        Game game = new Game();
+    }
+}
