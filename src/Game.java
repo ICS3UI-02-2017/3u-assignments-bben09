@@ -1,7 +1,9 @@
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import java.awt.event.ActionEvent;
@@ -37,11 +39,18 @@ public class Game extends JComponent implements ActionListener {
     boolean down = false;
     boolean right = false;
     boolean left = false;
+    boolean start = false;
     int playerX = 375;
     int playerY = 550;
-    int Y1 = 20;
-    int Y2 = 225;
-    int Y3 = 425;
+    int Y1 = 10;
+    int Y2 = 215;
+    int Y3 = 415;
+    int Y4 = 615;
+    
+    int[] randomwidth = new int[100];
+    int[] rightrectx = new int[100];
+    int[] yvalues = new int[100];
+    Font gamestart = new Font("arial", Font.BOLD, 36);
 
     // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
@@ -68,7 +77,7 @@ public class Game extends JComponent implements ActionListener {
         this.addMouseMotionListener(m);
         this.addMouseWheelListener(m);
         this.addMouseListener(m);
-
+        preSetup();
         gameTimer = new Timer(desiredTime, this);
         gameTimer.setRepeats(true);
         gameTimer.start();
@@ -87,17 +96,33 @@ public class Game extends JComponent implements ActionListener {
         g.fillRect(0, 0, 800, 600);
 
         g.setColor(Color.yellow);
-        g.fillOval(playerX, playerY, 50, 50);
+        g.fillRect(playerX, playerY, 40, 40);
 
         g.setColor(Color.white);
-        g.fillRect(0, Y1, 300, 50);
-        g.fillRect(375, Y1, 425, 50);
+        //g.fillRect(0, Y1, 300, 50);
+        //g.fillRect(375, Y1, 425, 50);
+        
+        //Rectangle firstwallR = new Rectangle(375, Y1, 425, 50);
+        
+        for (int i = 0; i < 100; i++) {
+            Rectangle wallL = new Rectangle(0, yvalues[i], randomwidth[i], 50);
+            Rectangle wallR = new Rectangle(rightrectx[i], yvalues[i], 800, 50);
+        }
+        
+        //g.fillRect(0, Y2, 600, 50);
+        //g.fillRect(675, Y2, 125, 50);
 
-        g.fillRect(0, Y2, 600, 50);
-        g.fillRect(675, Y2, 125, 50);
+        //g.fillRect(0, Y3, 150, 50);
+        //g.fillRect(225, Y3, 575, 50);
 
-        g.fillRect(0, Y3, 150, 50);
-        g.fillRect(225, Y3, 575, 50);
+        //g.fillRect(0, Y4, 400, 50);
+        //g.fillRect(475, Y4, 325, 50);
+        
+        if(!start){
+            g.setFont(gamestart);
+            g.setColor(Color.yellow);
+            g.drawString("Press Space to Start Game", 200, 100);
+        }
 
         // GAME DRAWING ENDS HERE
     }
@@ -106,36 +131,55 @@ public class Game extends JComponent implements ActionListener {
     // This is run before the game loop begins!
     public void preSetup() {
         // Any of your pre setup before the loop starts should go here
+        for (int i = 0; i < 100; i++) {
+            randomwidth[i] = (int) Math.floor(Math.random()* 725);
+            rightrectx[i] = randomwidth[i] + 75;
+        }
+        
+        for (int i = 0; i < 100; i++) {
+            yvalues[i] = (i *200) * -1;
+            
+        }
     }
 
     // The main game loop
     // In here is where all the logic for my game will go
     public void gameLoop() {
-        if (up && playerY > -1) {
-            playerY = playerY - 8;
-        }
-        if (down && playerY < 551) {
-            playerY = playerY + 8;
-        }
-        if (right && playerX < 751) {
-            playerX = playerX + 8;
-        }
-        if (left && playerX > -1) {
-            playerX = playerX - 8;
-        }
-        Y1 = Y1 + 2;
-        if (Y1 >= 600) {
-            Y1 = -50;
-        }
-        Y2 = Y2 + 2;
-        if (Y2 >= 600) {
-            Y2 = -50;
-        }
-        Y3 = Y3 + 2;
-        if (Y3 >= 600) {
-            Y3 = -50;
-        }
+        //if (up && playerY > -1) {
+            //playerY = playerY - 8;
+        //}
+        //if (down && playerY < 551) {
+            //playerY = playerY + 8;
+        //}
+        //if (right && playerX < 751) {
+            //playerX = playerX + 8;
+        //}
+        //if (left && playerX > -1) {
+            //playerX = playerX - 8;
+        //}
 
+        if (start) {
+            for (int i = 0; i < 100; i++) {
+                yvalues[i] = yvalues[i] + 10;
+                
+            }
+            //Y1 = Y1 + 2;
+            //if (Y1 >= 725) {
+                //Y1 = -50;
+            //}
+            //Y2 = Y2 + 2;
+            //if (Y2 >= 725) {
+                //Y2 = -50;
+            //}
+            //Y3 = Y3 + 2;
+            //if (Y3 >= 725) {
+                //Y3 = -50;
+            //}
+            //Y4 = Y4 + 2;
+            //if (Y4 >= 725) {
+                //Y4 = -50;
+            }
+        //}
 
     }
 
@@ -180,6 +224,9 @@ public class Game extends JComponent implements ActionListener {
             } else if (keycode == KeyEvent.VK_D) {
                 right = true;
             }
+            if (keycode == KeyEvent.VK_SPACE) {
+                start = true;
+            }
         }
 
         // if a key has been released
@@ -201,7 +248,7 @@ public class Game extends JComponent implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        preSetup();
+        
         gameLoop();
         repaint();
     }
