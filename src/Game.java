@@ -45,20 +45,27 @@ public class Game extends JComponent implements ActionListener {
     boolean lvl1 = false;
     boolean lvl2 = false;
     boolean lvl2start = false;
+    boolean lvl3 = false;
+    boolean lvl3start = false;
     //boolean to end the game
     boolean gameover = false;
+    
+    boolean gamewon = false;
     //integers to keep track of the players position
     int playerX = 375;
     int playerY = 550;
     //integer array to store the width of the left side walls
     int[] randomwidthlvl1 = new int[10];
     int[] randomwidthlvl2 = new int[10];
+    int[] randomwidthlvl3 = new int[10];
     //integer array to store the x value of the right side walls
     int[] rightrectxlvl1 = new int[10];
     int[] rightrectxlvl2 = new int[10];
+    int[] rightrectxlvl3 = new int[10];
     //integer array to store the y values for the walls
     int[] yvalueslvl1 = new int[10];
     int[] yvalueslvl2 = new int[10];
+    int[] yvalueslvl3 = new int[10];
     //font for outputing to user
     Font gametext = new Font("arial", Font.BOLD, 50);
 
@@ -128,23 +135,38 @@ public class Game extends JComponent implements ActionListener {
                 g.fillRect(rightrectxlvl2[i], yvalueslvl2[i], 800, 50);
             }
         }
+        if(lvl3) {
+            for (int i = 0; i < 10; i++) {
+                g.fillRect(0, yvalueslvl3[i], randomwidthlvl3[i], 50);
+                g.fillRect(rightrectxlvl3[i], yvalueslvl3[i], 800, 50);
+            }
+        }
         //tell player to press space to start level one
-        if (!lvl1 && !gameover && !lvl2start) {
+        if (!lvl1 && !gameover && !lvl2start && !lvl3start) {
             g.setFont(gametext);
             g.setColor(Color.orange);
-            g.drawString("Press Space to Start Level One", 50, 100);
+            g.drawString("Press Space to Start Level One", 35, 200);
         }
         //tell the player to press space to start level two
-        if (lvl2start && !gameover) {
+        if (lvl2start && !gameover && !lvl3start) {
             g.setFont(gametext);
             g.setColor(Color.orange);
             g.drawString("Press Space to Start Level Two", 50, 100);
+        }
+        //tell the player to press space to start level three
+        if (lvl3start && !gameover) {
+            g.setFont(gametext);
+            g.setColor(Color.orange);
+            g.drawString("Press Space to Start Level Three", 50, 100);
         }
         //if the game is over, output "Game Over"
         if (gameover) {
             g.setFont(gametext);
             g.setColor(Color.orange);
             g.drawString("Game Over", 300, 300);
+        }
+        if(gamewon){
+            g.drawString("Congradulations! You Won", 50, 100);
         }
 
         // GAME DRAWING ENDS HERE
@@ -160,7 +182,6 @@ public class Game extends JComponent implements ActionListener {
             randomwidthlvl1[i] = (int) Math.floor(Math.random() * 725);
             rightrectxlvl1[i] = randomwidthlvl1[i] + 80;
         }
-
         //for level one: fill y value array for the walls that will seperate them by 200
         for (int i = 0; i < 10; i++) {
             yvalueslvl1[i] = ((i * 200) * -1) - 50;
@@ -170,10 +191,18 @@ public class Game extends JComponent implements ActionListener {
             randomwidthlvl2[i] = (int) Math.floor(Math.random() * 725);
             rightrectxlvl2[i] = randomwidthlvl2[i] + 80;
         }
-
         //for level 2: fill y value array for the walls that will seperate them by 200
         for (int i = 0; i < 10; i++) {
             yvalueslvl2[i] = ((i * 200) * -1) - 50;
+        }
+        //for level 3: randomly generate the width of the wall on the left side, then make the x on the left equal to the width plus 80 to make and opening for the player
+        for (int i = 0; i < 10; i++) {
+            randomwidthlvl3[i] = (int) Math.floor(Math.random() * 725);
+            rightrectxlvl3[i] = randomwidthlvl3[i] + 80;
+        }
+        //for level 3: fill y value array for the walls that will seperate them by 200
+        for (int i = 0; i < 10; i++) {
+            yvalueslvl3[i] = ((i * 200) * -1) - 50;
         }
 
     }
@@ -254,8 +283,36 @@ public class Game extends JComponent implements ActionListener {
         }
         if (yvalueslvl2[9] == 600) {
             lvl2 = false;
+            lvl3start = true;
         }
+        if (lvl3) {
+            for (int i = 0; i < 10; i++) {
+                yvalueslvl3[i] = yvalueslvl3[i] + 4;
+            }
 
+            //if the player touches one of the walls on the left side, stop the game and display gameover
+            for (int i = 0; i < 10; i++) {
+                if (!(playerX > randomwidthlvl3[i] || playerY + 40 < yvalueslvl3[i] || playerY > yvalueslvl3[i] + 50)) {
+                    gameover = true;
+                }
+            }
+            //if the player touches one of the walls on the right side, stop the game and display gameover
+            for (int i = 0; i < 10; i++) {
+                if (!(playerX + 40 < rightrectxlvl3[i] || playerY + 40 < yvalueslvl3[i] || playerY > yvalueslvl3[i] + 50)) {
+                    gameover = true;
+                }
+            }
+
+            if(yvalueslvl3[9] == 600){
+                gamewon = true;
+                
+            }
+            //if the game is over, make stop the game from running
+            if (gameover) {
+                start = false;
+                lvl3 = false;
+            }
+        }
     }
 
     // Used to implement any of the Mouse Actions
@@ -307,7 +364,11 @@ public class Game extends JComponent implements ActionListener {
                 lvl2 = true;
                 lvl2start = false;
             }
-            
+            if (lvl3start && keycode == KeyEvent.VK_SPACE) {
+                lvl3 = true;
+                lvl3start = false;
+            }
+
         }
 
         // if a key has been released
