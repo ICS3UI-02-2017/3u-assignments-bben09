@@ -183,7 +183,6 @@ public class Game extends JComponent implements ActionListener {
             g.setFont(gametext);
             g.setColor(Color.orange);
             g.drawString("Game Over", 300, 200);
-            g.drawString("Press Space to Go to Main Menu", 50, 400);
         }
         if (gamewon) {
             g.drawString("Congradulations! You Won", 50, 100);
@@ -282,11 +281,13 @@ public class Game extends JComponent implements ActionListener {
                 start = false;
             }
         }
+        //if the player passes all the blocks, bring up the menu to start level 2
         if (yvalueslvl1[9] == 600) {
             lvl1 = false;
             lvl2start = true;
         }
         if (lvl2) {
+            //move the walls towards the player faster than level one
             for (int i = 0; i < 10; i++) {
                 yvalueslvl2[i] = yvalueslvl2[i] + 4;
             }
@@ -310,10 +311,12 @@ public class Game extends JComponent implements ActionListener {
                 lvl2 = false;
             }
         }
+        //if the player passes all the blocks, bring up the menu to start level 2
         if (yvalueslvl2[9] >= 600) {
             lvl2 = false;
             lvl3start = true;
         }
+        //move the walls towards the player, but faster than level 2
         if (lvl3) {
             for (int i = 0; i < 10; i++) {
                 yvalueslvl3[i] = yvalueslvl3[i] + 5;
@@ -331,7 +334,7 @@ public class Game extends JComponent implements ActionListener {
                     gameover = true;
                 }
             }
-
+            //if the player passes all the walls in level 3 tell them they won 
             if (yvalueslvl3[9] == 600) {
                 gamewon = true;
 
@@ -344,6 +347,7 @@ public class Game extends JComponent implements ActionListener {
         }
         if (arcade) {
             start = true;
+            //move the walls towards the player   
             for (int i = 0; i < 1000; i++) {
                 yvaluesarcade[i] = yvaluesarcade[i] + 4;
             }
